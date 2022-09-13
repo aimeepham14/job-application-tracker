@@ -19,7 +19,7 @@ Using The Muse's API key.
 ![imgur, user job board](https://i.imgur.com/nEIWlTJ.png)
 
 ## ERDs
-![imgur, ERD](https://i.imgur.com/NEOBmOF.png)
+![imgur, ERD](https://i.imgur.com/AEXaGXL.png)
 ## RESTful Routes
 #### User
 | Method | Action | Description|
