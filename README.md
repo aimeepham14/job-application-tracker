@@ -11,10 +11,12 @@ Using The Muse's API key.
 ![imgur, login page](https://i.imgur.com/85NM32h.png)
 #### New Account Page
 ![imgur, new account page](https://i.imgur.com/ZDvleec.png)
-#### Dashboard Home Page
-![imgur, dashboard home page](https://i.imgur.com/6GvzE4i.png)
-#### Viewing 1 Job Post Page
-![imgur, 1 job post page](https://i.imgur.com/967m3KE.png)
+#### Dashboard Search Job Page
+![imgur, dashboard home page](https://i.imgur.com/STnwVsS.png)
+#### User's Job Board
+![imgur, user job board](https://i.imgur.com/igDLeS4.png)
+#### Adding a job to your Job Board
+![imgur, user job board](https://i.imgur.com/nEIWlTJ.png)
 
 ## ERDs
 ![imgur, ERD](https://i.imgur.com/NEOBmOF.png)
