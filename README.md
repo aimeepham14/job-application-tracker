@@ -37,6 +37,11 @@ Using The Muse's API key.
 | PUT    | /users/:id/jobs/:id | Edit a job  |
 | DELETE | /users/:id/jobs/:id  | Deleting a job  |
 
+## User Stories
+* As a user I want to be able search for jobs available through The Muse and click into the job posting link to apply
+* As a user I want to be able to add a job that I applied for to my job board
+* As a user I want to be able to update and edit my jobs on my job board with my interview status 
+
 ## MVP Goals
 * Have all of the models successfully set
 * Successfully integrate the API
