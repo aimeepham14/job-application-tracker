@@ -1,13 +1,10 @@
 # Job Application Tracker
 
 ## Description
-A job application tracker to maintain, organize, and manage the jobs that you apply for through LinkedIn. Let's us help you get organized so you can get hired for your next dream job. 
+A job application tracker that does it all. Apply for jobs through this app and be able to maintain, organize, and track all of the jobs that you apply for in one place.
 
 ## Installment Instructions
-I will be planning to use LinkedIn's API to pull in their job posts database.
-
-## Tech Used
-Bootstrap 5
+Using The Muse's API key.
 
 ## Wireframes
 #### Login Page
