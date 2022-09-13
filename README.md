@@ -1,7 +1,7 @@
-# Job Application Tracker
+# Job Application Board
 
 ## Description
-A job application tracker that does it all. Apply for jobs through this app and be able to maintain, organize, and track all of the jobs that you apply for in one place.
+Bored and overwhelmed applying for jobs? Don't be bored and apply for your own job board. This application will keep track of all of your applied jobs in one spot. Update your personal job board with all of the jobs that you are currently applying for and update with notes and reminders as you move along the interview process.
 
 ## Installment Instructions
 Using The Muse's API key.
