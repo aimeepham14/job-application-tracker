@@ -1,1 +1,11 @@
 <h2>Welcome to your profile <%= user.email %>! 🔥 </h2>
+
+<p>search for a job below...</p>
+
+<form method="GET" action="/users/profile">
+    <label for="search-input">Search for a job:</label>
+    <input id="search-input" type="text" placeholder="Enter your search..." name="jobInput" />
+
+    <button type ="submit">Search The MUSE</button>
+
+</form>
