@@ -1,7 +1,7 @@
 # Job Application Board
 
 ## Description
-Bored and overwhelmed applying for jobs? Don't be bored and apply for your own job board. This application will keep track of all of your applied jobs in one spot. Update your personal job board with all of the jobs that you are currently applying for and update with notes and reminders as you move along the interview process.
+Bored and overwhelmed applying for jobs? Don't be bored, get access to all of our boards to keep track of everything during the job searching process. This application will keep track of all of your jobs that you are interested in applying to and jobs that you have currently applied to in one spot. Update with your own notes during the entire interview process all in one place.
 
 ## Installment Instructions
 Using The Muse's API key.
