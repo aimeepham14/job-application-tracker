@@ -66,6 +66,7 @@ router.post('/login', async (req, res) => {
             } 
         })
         const noLoginMessage = 'Incorrect username or password'
+console.log(req.body.password)
 
         // if the user is not found -- send the user back to the login form
         if (!user) {

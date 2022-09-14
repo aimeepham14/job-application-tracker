@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const db = require('./models')
 const crypto = require('crypto-js')
 
-// console.log('server secret:', process.env.ENC_SECRET)
+console.log('server secret:', process.env.ENC_SECRET)
 
 // config express app/middlewares
 const app = express()

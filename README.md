@@ -21,7 +21,7 @@ Using The Muse's API key.
 ![imgur, user board for jobs that are currently tracking](https://i.imgur.com/uZlX9PR.png)
 
 ## ERDs
-![imgur, ERD](https://i.imgur.com/1O6YsfR.png)
+![imgur, ERD](https://i.imgur.com/0C1mgth.png)
 ## RESTful Routes
 #### User
 | Method | Action | Description|
