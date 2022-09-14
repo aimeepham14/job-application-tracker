@@ -49,20 +49,23 @@ app.get('/', (req, res) => {
 app.get('/users/profile/results', (req, res) => {
     console.log(req.query)
     const userSearch = req.query.jobInput
-    axios.get(`https://www.themuse.com/${process.env.API_KEY}&s=${userSearch}`)
+    // axios.get(`https://www.themuse.com/api/public/jobs?category=${userSearch}&page=1`)
+    axios.get(`https://www.themuse.com/api/public/jobs?page=1&descending=${userSearch}`)
     .then(response => {
         console.log(response.data)
-        res.render('results.ejs', {
+        res.render('users/results.ejs', {
             jobs: response.data.results,
             userSearch
-        })
+        }) 
+        // res.send(response.data)
     })
+    // console.log(req.query.userSearch)
     .catch(err => {
         console.log(err)
         res.send('server error 😭')
     })
-
 })
+
 
 // Controllers
 app.use('/users', require('./controllers/users'))
