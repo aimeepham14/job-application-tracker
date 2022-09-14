@@ -1,0 +1,10 @@
+<h1>Search Results for:</h1>
+<h2><%= userSearch %></h2>
+
+<% jobs.forEach(job => { %>
+    <div>
+        <h3><%= job.name %></h3>
+        <p><%= job.company %></p>
+
+    </div>
+<% }) %>

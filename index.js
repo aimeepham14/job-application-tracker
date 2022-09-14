@@ -5,6 +5,7 @@ const ejsLayouts = require('express-ejs-layouts')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
 const crypto = require('crypto-js')
+const axios = require('axios')
 
 console.log('server secret:', process.env.ENC_SECRET)
 
@@ -35,8 +36,6 @@ app.use(async (req, res, next) => {
     next()
 })
 
-
-
 // route definitions
 app.get('/', (req, res) => {
     // console.log('incoming cookie 🍪', req.cookies)
@@ -45,8 +44,32 @@ app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
+
+//GET /users/profile/results -- take in data from the search form, render search results from The Muse
+app.get('/users/profile/results', (req, res) => {
+    console.log(req.query)
+    const userSearch = req.query.jobInput
+    axios.get(`https://www.themuse.com/${process.env.API_KEY}&s=${userSearch}`)
+    .then(response => {
+        console.log(response.data)
+        res.render('results.ejs', {
+            jobs: response.data.results,
+            userSearch
+        })
+    })
+    .catch(err => {
+        console.log(err)
+        res.send('server error 😭')
+    })
+
+})
+
 // Controllers
 app.use('/users', require('./controllers/users'))
 
+var server = app.listen(process.env.PORT || 3000);
+module.exports = server
+
 // listen on a port
-app.listen(PORT, () => console.log(`you or your loved ones may be entitled to compensation on port: ${PORT}`))
+// app.listen(PORT, () => console.log(`you or your loved ones may be entitled to compensation on port: ${PORT}`))
+
