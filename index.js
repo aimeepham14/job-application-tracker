@@ -49,8 +49,7 @@ app.get('/', (req, res) => {
 app.get('/users/profile/results', (req, res) => {
     console.log(req.query)
     const userSearch = req.query.jobInput
-    // axios.get(`https://www.themuse.com/api/public/jobs?category=${userSearch}&page=1`)
-    axios.get(`https://www.themuse.com/api/public/jobs?page=1&descending=${userSearch}`)
+    axios.get(`https://www.themuse.com/api/public/jobs?category=${userSearch}&page=2`)
     .then(response => {
         console.log(response.data)
         res.render('users/results.ejs', {
