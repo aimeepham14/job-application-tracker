@@ -4,7 +4,19 @@
 <% jobs.forEach(job => { %>
     <div>
         <h3><%= job.name %></h3>
-        <p><%= job.company.name %></p>
+        <p><%= job.company %></p>
+        <p><%= job.type %></p>
 
+
+        <form method="POST" action="/job-board">
+            <input hidden type="text" name="name" value="<%=job.name %>" >
+            <input hidden type="text" name="type" value="<%=job.type %>" >
+            <input hidden type="text" name="locations" value="<%=job.locations.name %>" >
+
+
+        <button class="btn btn-primary" type="submit">Add to Your Job Board</button>
+         </form>
     </div>
 <% }) %>
+
+   

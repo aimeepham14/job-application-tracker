@@ -1,5 +1,12 @@
 <h1>Saved Jobs Here:</h1>
 
-<ul>
-    
-</ul>
+<% saved.forEach(save => { %>
+    <div>
+        <h3><%= save.name %></h3>
+        <h3><%= save.type %></h3>
+        <h3><%= save.locations.name</h3>
+
+        <h3><%= save.company %></h3>
+        <p><%= save.locations.name %></p>
+    </div>
+<% }) %>
