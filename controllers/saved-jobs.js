@@ -5,13 +5,16 @@ const db = require('../models')
 
 // GET /users/profile/job-board - return a page with saved jobs
 
-router.get('/users/profile/', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const saved = await db.save_job.findAll()
         //rendering them on job board page
-        res.render('saved jobs here')
+        res.send('saved jobs here')
     } catch(err) {
         console.log(err)
         res.send('server error')
     }
 });
+
+
+module.exports = router;
