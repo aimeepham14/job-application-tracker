@@ -2,11 +2,9 @@
 
 <% saved.forEach(save => { %>
     <div>
-        <h3><%= save.name %></h3>
-        <h3><%= save.type %></h3>
-        <h3><%= save.locations.name</h3>
-
-        <h3><%= save.company %></h3>
-        <p><%= save.locations.name %></p>
+        <h3><%= save.job.name %></h3>
+        <h3><%= save.refs.landing_page %></h3>
+        <h3><%= save.company.name %></h3>
+        <h3><%= save.locations[0].name %></h3>
     </div>
 <% }) %>

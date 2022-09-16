@@ -21,19 +21,24 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => { 
     try {
-        console.log(req.body)
         //find or create a job in the db
-        // await db.save_job.findOrCreate({
+        await db.save_job.findOrCreate({
+        where: {
+            positionName: req.body.name
+            // jobLink: req.body.link,
+            // company: req.body.company,
+            // location: req.body.location
+            
         // where: {
-        //     positionName: req.body
-        //     // jobLink: req.body.results.refs.landing_page,
-        //     // company: req.body.company.name,
-        //     // location: req.body.locations.name,
-        //     // dateAdded: date,
-        // }
-        // })
+        //     name: req.body.name
+        //     // link: req.body.refs.landing_page,
+            // company: req.body.company.name,
+            // locations: req.body.locations[0].name,
+        }
+        })
         //redirect to favorites
-        res.send(req.body)
+        res.redirect('/')
+        // res.send(req.body)
     } catch(err) {
         console.log(err)
         res.send('server error')
