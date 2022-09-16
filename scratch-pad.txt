@@ -6,3 +6,5 @@ password: VARCHAR 255 (string)
 sequelize model:create --name user --attributes email:string,password:string
 
 sequelize model:create --name save_job --attributes userId:string,positionName:string,jobLink:string,company:string,location:string,dateAdded:string 
+
+sequelize model: create --name job_note --attributes note:text,jobId:integer

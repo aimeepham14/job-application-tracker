@@ -1,10 +1,14 @@
-<h1>Saved Jobs Here:</h1>
+<h1>Your Saved Job Board:</h1>
+
 
 <% saved.forEach(save => { %>
     <div>
+    <li>
         <h3><%= save.positionName %></h3>
         <h3><%= save.jobLink %></h3>
         <h3><%= save.company %></h3>
         <h3><%= save.location %></h3>
+    </li>
+
     </div>
 <% }) %>

@@ -29,15 +29,10 @@ router.post('/', async (req, res) => {
             jobLink: req.body.link,
             company: req.body.company,
             location: req.body.locations
-            
-        // where: {
-        //     name: req.body.name
-        //     // link: req.body.refs.landing_page,
-            // company: req.body.company.name,
-            // locations: req.body.locations[0].name,
+        
         }
         })
-        //redirect to favorites
+        //redirect to job board
         res.redirect('/users/job-board')
         // res.send(req.body)
     } catch(err) {
@@ -46,9 +41,19 @@ router.post('/', async (req, res) => {
     }
 });
 
-// router.get('/job-board', (req, res) => {
-//     res.send("hi")
-// })
+// GET /job-board/:id - display a specific job from job board
+router.get('/:id', async (req, res) => {
+    try {
+        const saved = await db.save_job.findOne()
+        //rendering them on job board page
+        // res.send('saved jobs here')
+        // res.send(saved)
+        res.render('user-notes.ejs', { saved: saved })
+    } catch(err) {
+        console.log(err)
+        res.send('server error')
+    }
+});
 
 
 
