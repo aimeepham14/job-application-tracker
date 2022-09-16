@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
         const saved = await db.save_job.findAll()
         //rendering them on job board page
         // res.send('saved jobs here')
+        // res.send(saved)
         res.render('saved-jobs.ejs', { saved: saved })
     } catch(err) {
         console.log(err)
@@ -24,10 +25,10 @@ router.post('/', async (req, res) => {
         //find or create a job in the db
         await db.save_job.findOrCreate({
         where: {
-            positionName: req.body.name
-            // jobLink: req.body.link,
-            // company: req.body.company,
-            // location: req.body.location
+            positionName: req.body.name,
+            jobLink: req.body.link,
+            company: req.body.company,
+            location: req.body.locations
             
         // where: {
         //     name: req.body.name
@@ -37,13 +38,18 @@ router.post('/', async (req, res) => {
         }
         })
         //redirect to favorites
-        res.redirect('/')
+        res.redirect('/users/job-board')
         // res.send(req.body)
     } catch(err) {
         console.log(err)
         res.send('server error')
     }
 });
+
+// router.get('/job-board', (req, res) => {
+//     res.send("hi")
+// })
+
 
 
 module.exports = router;

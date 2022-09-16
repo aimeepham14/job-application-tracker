@@ -109,6 +109,8 @@ router.get('/profile', (req, res) => {
     }
 })
 
+router.use('/job-board', require('./saved-jobs'))
+
 
 
 

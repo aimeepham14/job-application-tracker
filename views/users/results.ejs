@@ -7,7 +7,7 @@
         <p><%= job.locations[0].name %></p>
 
 
-        <form method="POST" action="/job-board">
+        <form method="POST" action="/users/job-board">
             <input hidden type="text" name="name" value="<%=job.name %>" >
             <input hidden type="text" name="link" value="<%=job.refs.landing_page %>" >
             <input hidden type="text" name="company" value="<%=job.company.name %>" >
