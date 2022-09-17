@@ -109,7 +109,23 @@ router.get('/profile', (req, res) => {
     }
 })
 
-router.use('/job-board', require('./saved-jobs'))
+//GET /job-board -- displays all of the user's saved jobs
+
+router.get('/job-board', async (req, res) => {
+    try {
+        const saved = await db.save_job.findAll()
+        //rendering them on job board page
+        // res.send('saved jobs here')
+        // res.send(saved)
+        res.render('saved-jobs.ejs', { saved: saved })
+    } catch(err) {
+        console.log(err)
+        res.send('server error')
+    }
+});
+
+
+// router.use('/job-board', require('./saved-jobs'))
 
 
 

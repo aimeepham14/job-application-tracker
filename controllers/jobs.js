@@ -56,7 +56,17 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// DELETE FROM SAVED JOBS
+router.delete('/:id', (req,res) => {
+    db.save_job.destroy({
+        where: {id: req.params.id}
+    })
+    .then( () => {
+        res.redirect('/users/job-board')
+    })
+})
 
+  
 
 
 

@@ -2,15 +2,31 @@ let express = require('express')
 const { Model } = require('sequelize')
 let db = require('../models')
 let router = express.Router()
+const crypto = require('crypto-js')
+const bcrypt=require('bcrypt')
 
-//POST /notes - create a new note
-// router.post('/:id', async (req, res) => {
-//     try {
-//         console.log(req.body)
-//     } catch(error) {
-//         console.warn(error)
-//         res.status(400).render('main/404')
-//     }
-// })
+// ROUTES TO ADD AND EDIT A NOTE
+
+router.get('/notes', (req,res) => {
+    res.render('user-notes.ejs')
+})
+
+// POST /notes -- creates a new note
+
+router.post('/', async (req, res) => {
+    try{
+        //create a new note
+        const newNote = await db.job_note.create
+        ({
+            note: req.body.note
+        }) 
+        console.log(req.body)
+    }catch(error) {
+        console.log(error)
+        res.send('server error')
+    }
+})
+
+
 
 module.exports = router

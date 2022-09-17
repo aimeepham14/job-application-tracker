@@ -69,6 +69,7 @@ app.get('/users/profile/results', (req, res) => {
 
 // Controllers
 app.use('/users', require('./controllers/users'));
+app.use('/notes', require('./controllers/job-notes'))
 
 var server = app.listen(process.env.PORT || 3000);
 module.exports = server
