@@ -5,21 +5,18 @@ const router = express.Router();
 const db = require('../models');
 const save_job = require('../models/save_job');
 
+//// ROUTES TO SEARCH FOR JOBS AND SHOW A SPECIFIC ONE
+
 // GET /users/job-board - return a page with saved jobs
 
-router.get('/', async (req, res) => {
-    try {
-        const saved = await db.save_job.findAll()
-        //rendering them on job board page
-        // res.send('saved jobs here')
-        // res.send(saved)
-        res.render('saved-jobs.ejs', { saved: saved })
-    } catch(err) {
-        console.log(err)
-        res.send('server error')
-    }
-});
-
+router.get('/results', async (req, res) => {
+    console.log(req.query, "testing")
+    // axios.get(`https://www.themuse.com/api/public/jobs?category=${userSearch}&page=2`)
+        // .then (response => {
+        //     res.render('jobs/results.ejs', {jobs: response.data})
+        // })
+        // .catch(console.log)
+})
 // POST /users/job-board - receive the name of the saved job and add it to the database
 
 router.post('/', async (req, res) => { 

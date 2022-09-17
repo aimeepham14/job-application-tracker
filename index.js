@@ -45,31 +45,31 @@ app.get('/', (req, res) => {
 })
 
 
-//GET /users/profile/results -- take in data from the search form, render search results from The Muse
-app.get('/users/profile/results', (req, res) => {
-    console.log(req.query)
-    const userSearch = req.query.jobInput
-    axios.get(`https://www.themuse.com/api/public/jobs?category=${userSearch}&page=2`)
-    .then(response => {
-        console.log(response.data)
-        res.render('users/results.ejs', {
-            jobs: response.data.results,
-            userSearch
-        }) 
-        // res.send(response.data)
-    })
-    // console.log(req.query.userSearch)
-    .catch(err => {
-        console.log(err)
-        res.send('server error 😭')
-    })
-})
+// //GET /users/profile/results -- take in data from the search form, render search results from The Muse
+// app.get('/users/profile/results', (req, res) => {
+//     console.log(req.query)
+//     const userSearch = req.query.jobInput
+//     axios.get(`https://www.themuse.com/api/public/jobs?category=${userSearch}&page=2`)
+//     .then(response => {
+//         console.log(response.data)
+//         res.render('/jobs/results.ejs', {
+//             jobs: response.data.results,
+//             userSearch
+//         }) 
+//         // res.send(response.data)
+//     })
+//     // console.log(req.query.userSearch)
+//     .catch(err => {
+//         console.log(err)
+//         res.send('server error 😭')
+//     })
+// })
 
 
 
 // Controllers
 app.use('/users', require('./controllers/users'));
-app.use('/notes', require('./controllers/job-notes'))
+app.use('/jobs', require('./controllers/jobs'))
 
 var server = app.listen(process.env.PORT || 3000);
 module.exports = server
