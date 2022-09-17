@@ -8,10 +8,8 @@
         <h3><%= save.company %></h3>
         <h3><%= save.location %></h3>
     
-        <%=save.id%>
         <form method="GET" action="/users/job-board/<%=save.id%>" >
             <input hidden type="text" name="name" value="<%=save.name %>" >
-            <button class="btn btn-prmary" type="submit">View this job and make a note</button>
         </form>
         <a href="/users/job-board/<%=save.id%>" ><button class="btn btn-prmary" type="submit">View this job and make a note</button></a>
     </div>
