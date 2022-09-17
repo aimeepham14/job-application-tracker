@@ -10,12 +10,13 @@ const save_job = require('../models/save_job');
 // GET /users/job-board - return a page with saved jobs
 
 router.get('/results', async (req, res) => {
-    console.log(req.query, "testing")
-    // axios.get(`https://www.themuse.com/api/public/jobs?category=${userSearch}&page=2`)
-        // .then (response => {
-        //     res.render('jobs/results.ejs', {jobs: response.data})
-        // })
-        // .catch(console.log)
+    // console.log(req.query, "testing")
+    axios.get(`https://www.themuse.com/api/public/jobs?category=${req.query.categories}&page=2`)
+        .then (response => {
+            // console.log('testing', response.data)
+            res.render('jobs/results.ejs', {jobs:response.data})
+        })
+        .catch(console.log)
 })
 // POST /users/job-board - receive the name of the saved job and add it to the database
 
