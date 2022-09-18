@@ -22,16 +22,39 @@ router.get('/results', async (req, res) => {
 })
 // POST /users/job-board - receive the name of the saved job and add it to the database
 
+// router.post('/', async (req, res) => {
+//     try{
+//         console.log('testing', req.body)
+//         const[job] = await db.save_job.findOrCreate({
+//             where: {
+//                 positionName: req.body.name,
+//                 location: req.body.location,
+//                 company: req.body.location,
+//                 jobLink: req.body.refs.landing_page,
+//                 dateAdded: req.body.publication_date
+//             }
+//         })
+//         await res.locals.user.addJob(job)
+//         res.redirect('/users/job-board')
+//     } catch(error) {
+//         console.log(error)
+//         res.send('server error')
+//     }
+// })
+
+
+// POST -- receiving the name of a job and adding it to the database
 router.post('/', async (req, res) => { 
     try {
         //find or create a job in the db
         await db.save_job.findOrCreate({
         where: {
-            positionName: req.body.name,
-            jobLink: req.body.link,
+            positionName: req.body.positionName,
+            jobLink: req.body.jobLink,
             company: req.body.company,
-            location: req.body.locations
+            location: req.body.location,
         }
+
         })
         //redirect to job board
         res.redirect('/users/job-board')
@@ -44,17 +67,6 @@ router.post('/', async (req, res) => {
 
 // GET /jobs/info/:id - display a specific job in detail
 
-// router.get('/info/:id', async (req, res) => {
-//     try {
-//         const oneJob = await db.save_job.findOne({
-//             where: { id: req.params.id }
-//         })
-//         // console.log('testing')
-//         res.render('./jobs/info.ejs', {saved: oneJob})
-//     }catch(err) {
-//         console.log(err)
-//     }
-// });
 
 router.get('/info/:id', (req, res) => {
     // console.log(req.params.id, "testing id")
