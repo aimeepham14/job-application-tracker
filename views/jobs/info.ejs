@@ -1,8 +1,12 @@
 <!-- Display details about a clicked job here -->
 
-<h1> testing job details</h1>
+<h1> <%=jobs.name %> position details:</h1>
 
-<%= saved.positionName %> 
+    <li>Postion Name: <%= jobs.name %> </li>
+    <li>Location: <%= jobs.locations[0].name %></li>
+    <li>Company: <%= jobs.company.name %></li>
+    <li>Link to apply: <%= jobs.refs.landing_page %></li>
+
 
 
 

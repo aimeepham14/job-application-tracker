@@ -42,19 +42,29 @@ router.post('/', async (req, res) => {
     }
 });
 
-// GET /job-board/:id - display a specific job in detail to make notes
+// GET /jobs/info/:id - display a specific job in detail
 
-router.get('/:id', async (req, res) => {
-    try {
-        const oneJob = await db.save_job.findOne({
-            where: { id: req.params.id }
-        })
-        // console.log('testing')
-        res.render('job-details.ejs', {saved: oneJob})
-    }catch(err) {
-        console.log(err)
-    }
-});
+// router.get('/info/:id', async (req, res) => {
+//     try {
+//         const oneJob = await db.save_job.findOne({
+//             where: { id: req.params.id }
+//         })
+//         // console.log('testing')
+//         res.render('./jobs/info.ejs', {saved: oneJob})
+//     }catch(err) {
+//         console.log(err)
+//     }
+// });
+
+router.get('/info/:id', (req, res) => {
+    // console.log(req.params.id, "testing id")
+    axios.get(`https://www.themuse.com/api/public/jobs/${req.params.id}`)
+    .then (response => {
+        res.render('jobs/info.ejs', {jobs:response.data})
+    })
+    .catch(console.log)
+})
+
 
 // DELETE FROM SAVED JOBS
 router.delete('/:id', (req,res) => {
