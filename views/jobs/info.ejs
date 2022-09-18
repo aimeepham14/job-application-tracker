@@ -1,4 +1,4 @@
-<!-- Display details about a clicked job here -->
+<!-- Details on a specific job -->
 
 <h1> <%=jobs.name %> position details:</h1>
 
@@ -6,9 +6,12 @@
     <li>Location: <%= jobs.locations[0].name %></li>
     <li>Company: <%= jobs.company.name %></li>
     <li>Link to apply: <%= jobs.refs.landing_page %></li>
+    <li>Job Posted Date: <%= jobs.publication_date %></li>
 
 
+<!-- Adding job to Saved Job Board -->
+<form method="POST" action="/jobs">
+    <input hidden value="<%= jobs.name%>" name="positionName"/>
 
 
-<!-- adding a note to this job -->
-
+</form>
