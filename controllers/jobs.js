@@ -11,10 +11,12 @@ const save_job = require('../models/save_job');
 
 router.get('/results', async (req, res) => {
     // console.log(req.query, "testing")
-    axios.get(`https://www.themuse.com/api/public/jobs?category=${req.query.categories}&page=2`)
+    axios.get(`https://www.themuse.com/api/public/jobs?category=${req.query.jobInput}&page=2`)
         .then (response => {
+            console.log(req.query)
             // console.log('testing', response.data)
-            res.render('jobs/results.ejs', {jobs:response.data})
+            res.render('./jobs/results.ejs', {jobs:response.data.results})
+            // res.send(response.data)
         })
         .catch(console.log)
 })
