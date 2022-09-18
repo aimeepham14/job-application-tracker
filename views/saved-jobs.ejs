@@ -13,9 +13,9 @@
             <input hidden type="text" name="name" value="<%=save.name %>" >
 
         </form>
-        <a href="/users/job-board/<%=save.id%>" ><button class="btn btn-prmary" type="submit">View this job and make a note</button></a>
+        <a href="/job-notes/<%=save.id%>" ><button class="btn btn-prmary" type="submit">View this job and make a note</button></a>
 
-        <form method="POST" action="/users/job-board/<%=saved.id%>/?_method=DELETE">
+        <form method="POST" action="/users/job-board/?_method=DELETE">
             <input type="submit" value="Remove from Job Board">
             </form>
 

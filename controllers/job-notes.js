@@ -8,7 +8,7 @@ const bcrypt=require('bcrypt')
 // ROUTES TO ADD AND EDIT A NOTE
 
 router.get('/notes', (req,res) => {
-    res.render('user-notes.ejs')
+    res.render('job-notes/user-notes.ejs')
 })
 
 // POST /notes -- creates a new note

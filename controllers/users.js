@@ -124,22 +124,7 @@ router.get('/job-board', async (req, res) => {
     }
 });
 
-// router.get('/job-board', async (req, res) => {
-//     try{
-//         res.render('saved-jobs.ejs', {
-//             name: req.body.name,
-//             jobLink: req.body.link,
-//             company: req.body.company,
-//             location: req.body.locations
-//         })
-//     } catch(error) {
-//         console.log(error)
-//         res.send('server error')
-//     }
-// })
 
-
-// router.use('/job-board', require('./saved-jobs'))
 
 router.use('/jobs', require('./jobs'))
 
