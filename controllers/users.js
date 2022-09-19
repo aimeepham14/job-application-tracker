@@ -140,17 +140,7 @@ router.delete('/job-board/:id', async (req,res) => {
     .catch(console.log)
  })
 
-
- //GET -- viewing a specific job from Job Board
-//  router.get('/job-board/:id', (req, res) => {
-//     // console.log(req.params.id, "testing id")
-//     // console.log(req.params)
-//     axios.get(`https://www.themuse.com/api/public/jobs/${req.params.id}`)
-//     .then (response => {
-//         res.render('saved-jobs-details.ejs', {details:response.data})
-//     })
-//     .catch(console.log)
-// })
+//GET -- getting details to one job from the job board
 
 router.get('/job-board/:id', async (req, res) => {
    try {
@@ -161,6 +151,19 @@ router.get('/job-board/:id', async (req, res) => {
         res.send('server error')
     }
 });
+
+//POST -- route to save note to db
+router.post('/job-board/:id/notes', async (req, res) => {
+    try{
+        const newNote = await db.job_note.note.create({
+            note: req.body.note
+        })
+        res.redirect(`/job-board/${req.params.id}`)
+    } catch(err) {
+        console.log(err)
+        res.send('server error')
+    }
+})
 
 
 

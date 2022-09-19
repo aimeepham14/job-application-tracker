@@ -6,10 +6,19 @@ const crypto = require('crypto-js');
 const bcrypt=require('bcrypt');
 const job_note = require('../models/job_note');
 
-//GET -- adding a route to take user to note form
+//POST -- creating a new note
 
-router.get('/', (req, res) => {
-    res.render('job-notes/user-notes.ejs')
+router.get('/job-board/:id', async (req, res) => {
+    try {
+        console.log(req.body)
+        await db.job_note.note({
+            note: req.body.note
+        })
+        res.redirect(`/users/job-board/${req.body.id}`)
+    } catch(err) {
+        console.log(err)
+        res.send('server error')
+    }
 })
 
 

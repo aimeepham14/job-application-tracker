@@ -9,6 +9,12 @@
 
     <form method="GET" action="/users/job-board/<%=details.id%>" >
         <input hidden type="text" name="name" value="<%=details.name %>" >
-
     </form>
 
+
+
+<form method="POST" action="/users/job-board/<%=details.id%>/notes">
+    <label for="note">Add a note here:</label>
+    <input type="text" name="note">
+    <input type="submit">
+</form>
