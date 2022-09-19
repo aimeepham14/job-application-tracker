@@ -7,18 +7,19 @@
         <h3><%= save.jobLink %></h3>
         <h3><%= save.company %></h3>
         <h3><%= save.location %></h3>
+        
     
         <form method="GET" action="/users/job-board/<%=save.id%>" >
             <input hidden type="text" name="name" value="<%=save.name %>" >
-            <input hidden type="text" name="name" value="<%=save.name %>" >
 
         </form>
-        <a href="/job-notes/<%=save.id%>" ><button class="btn btn-prmary" type="submit">View this job and make a note</button></a>
+        <a href="/job-notes/notes/<%=save.id%>" ><button class="btn btn-prmary" type="submit">View this job and make a note</button></a>
 
-        <form method="POST" action="/users/job-board/?_method=DELETE">
+        <form method="POST" action="/users/job-board/:id/?_method=DELETE">
             <input type="submit" value="Remove from Job Board">
             </form>
 
 
     </div>
 <% }) %>
+

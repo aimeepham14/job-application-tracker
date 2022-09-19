@@ -13,14 +13,15 @@ router.get('/notes', (req,res) => {
 
 // POST /notes -- creates a new note
 
-router.post('/', async (req, res) => {
+router.post('/notes', async (req, res) => {
     try{
         //create a new note
         const newNote = await db.job_note.create
         ({
             note: req.body.note
         }) 
-        console.log(req.body)
+        // console.log(req.body)
+        res.redirect('/users/job-board')
     }catch(error) {
         console.log(error)
         res.send('server error')

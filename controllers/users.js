@@ -125,6 +125,16 @@ router.get('/job-board', async (req, res) => {
 });
 
 
+router.delete('/job-board/:id', async (req,res) => {
+    db.save_job.destroy({
+     where: { id: req.params.jobId}
+    })
+    .then( () => {
+     res.redirect('/users/job-board')
+    })
+    .catch(console.log)
+ })
+
 
 router.use('/jobs', require('./jobs'))
 
