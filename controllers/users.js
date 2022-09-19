@@ -126,6 +126,7 @@ router.get('/job-board', async (req, res) => {
     }
 });
 
+//DELETE -- deleting job from Job Board
 
 router.delete('/job-board/:id', async (req,res) => {
     db.save_job.destroy({
@@ -136,6 +137,20 @@ router.delete('/job-board/:id', async (req,res) => {
     })
     .catch(console.log)
  })
+
+
+ //GET -- viewing a specific job from Job Board
+ router.get('/job-board/:id', (req, res) => {
+    // console.log(req.params.id, "testing id")
+    axios.get(`https://www.themuse.com/api/public/jobs/${req.params.id}`)
+    .then (response => {
+        res.render('saved-jobs-details.ejs', {jobs:response.data})
+    })
+    .catch(console.log)
+})
+
+
+
 
 
 router.use('/jobs', require('./jobs'))

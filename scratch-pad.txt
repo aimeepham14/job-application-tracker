@@ -11,3 +11,27 @@ sequelize model:create --name job_note --attributes note:text,jobId:integer
 
 
 <input hidden value="<%= jobs.id %>" name="jobId">
+
+
+<body>
+    <div class="nav justify-content-end" >
+        <div class="row">
+                <nav>
+                <!-- if the user is logged in... -->
+                <!-- all data in the res.locals is usable in the layout -->
+                    <div class="col" >
+                        <% if (user) { %>
+                        <a href="/users/profile">Profile</a>
+                        <a href="/users/logout">Logout</a>
+                    
+    
+                        <% } else { %>
+                        <a href="/users/new">Sign Up</a>
+                        <a href="/users/login">Login</a>
+                        <% } %>
+                    </div>
+                </nav>
+     </div>
+    </div>
+    <%- body %>
+</body>
