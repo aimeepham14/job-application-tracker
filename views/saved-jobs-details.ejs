@@ -1,14 +1,15 @@
 <!-- Details on a specific job -->
 
-<h1> <%=jobs.name %> position details:</h1>
+<h1> <%=details.name %> position details:</h1>
 
-    <li>Postion Name: <%= jobs.name %> </li>
-    <li>Location: <%= jobs.locations[0].name %></li>
-    <li>Company: <%= jobs.company.name %></li>
-    <li>Link to apply: <%= jobs.refs.landing_page %></li>
-    <li>Job Posted Date: <%= jobs.publication_date %></li>
+    <li>Postion Name: <%= details.positionName %> </li>
+    <li>Location: <%= details.locations %></li>
+    <li>Company: <%= details.company %></li>
+    <li>Link to apply: <%= details.jobLink %></li>
+    <li>Job Posted Date: <%= details.dateAdded %></li>
 
-    <form method="GET" action="/users/job-board/<%=save.id%>" >
-        <input hidden type="text" name="name" value="<%=save.name %>" >
+    <form method="GET" action="/users/job-board/<%=details.id%>" >
+        <input hidden type="text" name="name" value="<%=details.name %>" >
 
     </form>
+

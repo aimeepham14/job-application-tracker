@@ -5,6 +5,8 @@ const crypto = require('crypto-js')
 const bcrypt = require('bcrypt')
 const methodOverride = require("method-override")
 router.use(methodOverride("_method"))
+const { default: axios } = require('axios');
+
 
 // GET /users/new -- render a form to create a new user
 router.get('/new', (req, res) => {
@@ -140,15 +142,25 @@ router.delete('/job-board/:id', async (req,res) => {
 
 
  //GET -- viewing a specific job from Job Board
- router.get('/job-board/:id', (req, res) => {
-    // console.log(req.params.id, "testing id")
-    axios.get(`https://www.themuse.com/api/public/jobs/${req.params.id}`)
-    .then (response => {
-        res.render('saved-jobs-details.ejs', {jobs:response.data})
-    })
-    .catch(console.log)
-})
+//  router.get('/job-board/:id', (req, res) => {
+//     // console.log(req.params.id, "testing id")
+//     // console.log(req.params)
+//     axios.get(`https://www.themuse.com/api/public/jobs/${req.params.id}`)
+//     .then (response => {
+//         res.render('saved-jobs-details.ejs', {details:response.data})
+//     })
+//     .catch(console.log)
+// })
 
+router.get('/job-board/:id', async (req, res) => {
+   try {
+    const details = await db.save_job.findOne()
+    res.render('saved-jobs-details.ejs', {details: details})
+   } catch (err) {
+        console.log(err)
+        res.send('server error')
+    }
+});
 
 
 
