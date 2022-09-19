@@ -3,6 +3,8 @@ const router = express.Router()
 const db = require('../models')
 const crypto = require('crypto-js')
 const bcrypt = require('bcrypt')
+const methodOverride = require("method-override")
+router.use(methodOverride("_method"))
 
 // GET /users/new -- render a form to create a new user
 router.get('/new', (req, res) => {
@@ -127,7 +129,7 @@ router.get('/job-board', async (req, res) => {
 
 router.delete('/job-board/:id', async (req,res) => {
     db.save_job.destroy({
-     where: { id: req.params.jobId}
+     where: { id: req.params.id}
     })
     .then( () => {
      res.redirect('/users/job-board')

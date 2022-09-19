@@ -13,11 +13,13 @@
             <input hidden type="text" name="name" value="<%=save.name %>" >
 
         </form>
-        <a href="/job-notes/notes/<%=save.id%>" ><button class="btn btn-prmary" type="submit">View this job and make a note</button></a>
+        <h3>
+            <a href = '/job-notes'>Add a note</a>
+        </h3>
 
-        <form method="POST" action="/users/job-board/:id/?_method=DELETE">
+        <form method="POST" action="/users/job-board/<%=save.id%>/?_method=DELETE">
             <input type="submit" value="Remove from Job Board">
-            </form>
+        </form>
 
 
     </div>

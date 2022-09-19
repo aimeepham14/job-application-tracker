@@ -1,31 +1,15 @@
-let express = require('express')
-const { Model } = require('sequelize')
-let db = require('../models')
-let router = express.Router()
-const crypto = require('crypto-js')
-const bcrypt=require('bcrypt')
+let express = require('express');
+const { Model } = require('sequelize');
+let db = require('../models');
+let router = express.Router();
+const crypto = require('crypto-js');
+const bcrypt=require('bcrypt');
+const job_note = require('../models/job_note');
 
-// ROUTES TO ADD AND EDIT A NOTE
+//GET -- adding a route to take user to note form
 
-router.get('/notes', (req,res) => {
+router.get('/', (req, res) => {
     res.render('job-notes/user-notes.ejs')
-})
-
-// POST /notes -- creates a new note
-
-router.post('/notes', async (req, res) => {
-    try{
-        //create a new note
-        const newNote = await db.job_note.create
-        ({
-            note: req.body.note
-        }) 
-        // console.log(req.body)
-        res.redirect('/users/job-board')
-    }catch(error) {
-        console.log(error)
-        res.send('server error')
-    }
 })
 
 
