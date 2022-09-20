@@ -25,6 +25,7 @@ router.get('/results', async (req, res) => {
 
 // POST -- receiving the name of a job and adding it to the database
 router.post('/', async (req, res) => { 
+    console.log('something')
     try {
         //find or create a job in the db
         await db.save_job.findOrCreate({

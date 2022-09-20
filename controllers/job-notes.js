@@ -6,13 +6,15 @@ const crypto = require('crypto-js');
 const bcrypt=require('bcrypt');
 const job_note = require('../models/job_note');
 
-//POST -- creating a new note
 
-router.get('/job-board/:id', async (req, res) => {
+router.post('/job-board/:id', async (req, res) => {
+    // console.log('hello from here')
+    // res.send(job_note)
     try {
-        console.log(req.body)
-        await db.job_note.note({
-            note: req.body.note
+        // console.log(req.body)
+        await db.job_note.create({
+            note: req.body.note,
+            date: req.body.date
         })
         res.redirect(`/users/job-board/${req.body.id}`)
     } catch(err) {

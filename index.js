@@ -36,6 +36,12 @@ app.use(async (req, res, next) => {
     next()
 })
 
+app.use('/users', require('./controllers/users'));
+app.use('/jobs', require('./controllers/jobs'))
+app.use('/job-notes', require('./controllers/job-notes'))
+
+
+
 // route definitions
 app.get('/', (req, res) => {
     // console.log('incoming cookie 🍪', req.cookies)
@@ -68,9 +74,9 @@ app.get('/', (req, res) => {
 
 
 // Controllers
-app.use('/users', require('./controllers/users'));
-app.use('/jobs', require('./controllers/jobs'))
-app.use('/job-notes', require('./controllers/job-notes'))
+// app.use('/users', require('./controllers/users'));
+// app.use('/jobs', require('./controllers/jobs'))
+// app.use('/job-notes', require('./controllers/job-notes'))
 
 
 var server = app.listen(process.env.PORT || 3000);

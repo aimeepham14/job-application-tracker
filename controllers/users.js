@@ -143,6 +143,7 @@ router.delete('/job-board/:id', async (req,res) => {
 //GET -- getting details to one job from the job board
 
 router.get('/job-board/:id', async (req, res) => {
+    console.log('testing again2')
    try {
     const details = await db.save_job.findOne()
     res.render('saved-jobs-details.ejs', {details: details})
@@ -154,14 +155,18 @@ router.get('/job-board/:id', async (req, res) => {
 
 //POST -- route to save note to db
 router.post('/job-board/:id/notes', async (req, res) => {
+    // console.log('testing this route')
+    console.log(req.body)
     try{
         const newNote = await db.job_note.create({
-            note: req.body.note
+            note: req.body.note,
+            date: req.body.date
         })
+        // res.send(newNote)
         res.redirect(`/job-board/${req.params.id}`)
     } catch(err) {
         console.log(err)
-        res.send('server error')
+        res.send(err)
     }
 })
 
