@@ -5,7 +5,7 @@ const router = express.Router();
 const db = require('../models');
 const save_job = require('../models/save_job');
 
-//// ROUTES TO SEARCH FOR JOBS AND SHOW A SPECIFIC ONE
+//// ROUTES TO SEARCH FOR JOBS
 
 // GET /users/job-board - return a page with saved jobs
 
@@ -47,7 +47,6 @@ router.post('/', async (req, res) => {
 
 // GET /jobs/info/:id - display a specific job in detail
 
-
 router.get('/info/:id', (req, res) => {
     // console.log(req.params.id, "testing id")
     axios.get(`https://www.themuse.com/api/public/jobs/${req.params.id}`)
@@ -59,6 +58,9 @@ router.get('/info/:id', (req, res) => {
 
 
 
-// POST /
+
+
+
+
 
 module.exports = router;

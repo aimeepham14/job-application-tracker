@@ -3,7 +3,7 @@ USER MODEL
 email: VARCHAR 255 (string)
 password: VARCHAR 255 (string)
 
-sequelize model:create --name user --attributes email:string,password:string
+sequelize model:create --name user --attributes firstName:string,lastName:string,email:string,password:string
 
 sequelize model:create --name save_job --attributes userId:string,positionName:string,jobLink:string,company:string,location:string,dateAdded:string 
 
@@ -35,3 +35,87 @@ sequelize model:create --name job_note --attributes note:text,jobId:integer
     </div>
     <%- body %>
 </body>
+
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class job_note extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      models.job_note.belongsTo(models.save_job)
+    }
+  }
+  job_note.init({
+    note: DataTypes.TEXT,
+    jobId: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'job_note',
+  });
+  return job_note;
+};
+
+
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class save_job extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      models.save_job.hasMany(models.job_note)
+    }
+  }
+  save_job.init({
+    userId: DataTypes.STRING,
+    positionName: DataTypes.STRING,
+    jobLink: DataTypes.STRING,
+    company: DataTypes.STRING,
+    location: DataTypes.STRING,
+    dateAdded: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'save_job',
+  });
+  return save_job;
+};
+
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class user extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  }
+  user.init({
+    email: DataTypes.STRING,
+    password: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'user',
+  });
+  return user;
+};
+
+express_auth_boilerplate

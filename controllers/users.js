@@ -155,7 +155,7 @@ router.get('/job-board/:id', async (req, res) => {
 //POST -- route to save note to db
 router.post('/job-board/:id/notes', async (req, res) => {
     try{
-        const newNote = await db.job_note.note.create({
+        const newNote = await db.job_note.create({
             note: req.body.note
         })
         res.redirect(`/job-board/${req.params.id}`)

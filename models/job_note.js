@@ -11,12 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.job_note.belongsTo(models.save_job)
     }
   }
   job_note.init({
     note: DataTypes.TEXT,
-    jobId: DataTypes.INTEGER
+    date: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'job_note',
