@@ -27,7 +27,7 @@ Using The Muse's API key.
 | Method | Action | Description|
 |:------:|:------:|:----------:|
 | GET    | /users/new  | A form for creating a new user  |
-| POST   | /users  |   | Adding a new user to the database
+| POST   | /users  |   | Adding a new user to the database |
 | GET   | /users/login  | Show a login form to the user   |
 | GET   | /users/profile  | Show user's profile   |
 | GET | /users/job-board  | Display all of user's saved jobs  |
