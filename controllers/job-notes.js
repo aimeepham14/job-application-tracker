@@ -9,10 +9,17 @@ const job_note = require('../models/job_note');
 //GET -- getting details to one job from the job board
 
 router.get('/:id', async (req, res) => {
-    // console.log('testing again2')
+    console.log('testing hello',req.params.id)
    try {
     const details = await db.save_job.findOne()
-    res.render('saved-jobs-details.ejs', {details: details})
+    const newNote = await db.job_note.findAll({
+        where: {saveJobId: req.params.id }
+    })
+    // console.log(newNote)
+    res.render('saved-jobs-details.ejs', {
+        details: details,
+        note: newNote
+    })
    } catch (err) {
         console.log(err)
         res.send('server error')
@@ -20,10 +27,11 @@ router.get('/:id', async (req, res) => {
 });
 
 
+
 //POST -- route to save note to db
 router.post('/:id', async (req, res) => {
     // console.log('testing this route')
-    // console.log(req.body)
+    console.log('hello again again', req.body)
     try{
         const newNote = await db.job_note.create({
             note: req.body.note,
@@ -38,13 +46,26 @@ router.post('/:id', async (req, res) => {
     }
 });
 
-router.post('/:id/notes', async (req, res) => {
+
+//////NEW ROUTE ADDED
+// router.get('/:id', async (req, res) => {
+//     try {
+//         const allNote = await db.save_job.findAll()
+//         res.render('saved-jobs-details.ejs', { allNote: allNote })
+//     } catch(err) {
+//         console.log(err)
+//         res.send('server error')
+//     }
+// });
+
+router.post('/:id/notes', async (req, res) => {     console.log('hello again again', req.params)
+
     try{
         await db.job_note.findOrCreate({
         where: {
             note: req.body.note,
             date: req.body.date,
-            // saveJobId: req.body.saveJobId
+            saveJobId: req.params.id
         }
         })
         res.redirect(`/job-notes/${req.params.id}`)
