@@ -134,3 +134,31 @@ SEARCH RESULTS EJS
  <% }) %>
 </ul>
 
+
+
+SAVED JOB BOARD EJS
+<h1>Your Saved Job Board:</h1>
+
+
+<% saved.forEach(save => { %>
+    <div>
+        <h3><%= save.positionName %></h3>
+        <h3><%= save.jobLink %></h3>
+        <h3><%= save.company %></h3>
+        <h3><%= save.location %></h3>
+
+    
+
+        <form method="GET" action="/job-notes/<%=save.id%>" >
+            <input type="submit" name="id" value="View Job Details/Notes" >
+
+        </form>
+
+        <form method="POST" action="/users/job-board/<%=save.id%>/?_method=DELETE">
+            <input type="submit" value="Remove from Job Board">
+        </form>
+
+
+    </div>
+<% }) %>
+

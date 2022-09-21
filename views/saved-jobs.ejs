@@ -1,27 +1,55 @@
-<h1>Your Saved Job Board:</h1>
 
-
-<% saved.forEach(save => { %>
+<div>
     <div>
-        <h3><%= save.positionName %></h3>
-        <h3><%= save.jobLink %></h3>
-        <h3><%= save.company %></h3>
-        <h3><%= save.location %></h3>
-
-    
-
-        <form method="GET" action="/job-notes/<%=save.id%>" >
-            <input type="submit" name="id" value="View Job Details/Notes" >
-
-        </form>
-
-        <form method="POST" action="/users/job-board/<%=save.id%>/?_method=DELETE">
-            <input type="submit" value="Remove from Job Board">
-        </form>
-
-
+    <section class="vh-100" >
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+              <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                  <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+      
+                      <p class="text-left h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 p-3 mb-2 bg-warning text-dark">Your Job Board</p>
+                      <div>
+                        <% saved.forEach(save => { %>
+                        <div class="text-success"><h2><%= save.positionName %></h2></div>
+                        <br>
+                        <div><h4><u>Location:</u></h4><%= save.location %></div>
+                        <br>
+                        <div><h4><u>Company:</u></h4> <%= save.company %></div>
+                        <br>
+                        <div><h4><u>Link to apply:</u></h4><a href="<%= save.jobLink %>" target="_blank"><%= save.jobLink %></a></div>
+                        <br>
+                        <br>
+                        <form method="GET" action="/job-notes/<%=save.id%>" class="mx-1 mx-md-4">
+                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                            <input type="submit" name="id" value="View Job Details/Notes" class="btn btn-primary btn-lg" >
+                        </div>
+                        </form>
+                        <form method="POST" action="/users/job-board/<%=save.id%>/?_method=DELETE" class="mx-1 mx-md-4">
+                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                            <input type="submit" value="Remove from Job Board" class="btn btn-primary btn-lg">
+                        </div>
+                        </form>
+                        <% }) %>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-<% }) %>
-
-
-
+    <style>
+        body {
+            background-image: url('https://i.imgur.com/MMHuT6j.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+    
+        }
+    </style>
+    </div>
