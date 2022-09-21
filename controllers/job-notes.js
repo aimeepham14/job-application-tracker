@@ -47,18 +47,7 @@ router.post('/:id', async (req, res) => {
 });
 
 
-//////NEW ROUTE ADDED
-// router.get('/:id', async (req, res) => {
-//     try {
-//         const allNote = await db.save_job.findAll()
-//         res.render('saved-jobs-details.ejs', { allNote: allNote })
-//     } catch(err) {
-//         console.log(err)
-//         res.send('server error')
-//     }
-// });
-
-router.post('/:id/notes', async (req, res) => {     console.log('hello again again', req.params)
+router.post('/:id/notes', async (req, res) => { 
 
     try{
         await db.job_note.findOrCreate({
@@ -76,22 +65,6 @@ router.post('/:id/notes', async (req, res) => {     console.log('hello again aga
 })
 
 
-
-// router.post('/:id', async (req, res) => {
-//     // console.log('hello from here')
-//     // res.send(job_note)
-//     try {
-//         console.log(req.body)
-//         await db.job_note.create({
-//             note: req.body.note,
-//             date: req.body.date
-//         })
-//         res.redirect(`/users/job-board/${req.body.id}`)
-//     } catch(err) {
-//         console.log(err)
-//         res.send('server error')
-//     }
-// })
 
 
 

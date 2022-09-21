@@ -13,12 +13,12 @@ Using The Muse's API key.
 ![imgur, new account page](https://i.imgur.com/ZDvleec.png)
 #### Search for a job board
 ![imgur, search for job page](https://i.imgur.com/rXhmhPx.png)
-#### Form page to add to applied board
-![imgur, user form to applied jobs board](https://i.imgur.com/DaQ9GTV.png)
-#### Jobs that user has applied for board
-![imgur, user applied job board](https://i.imgur.com/3TcMfd6.png)
-#### Jobs that user is currently tracking
-![imgur, user board for jobs that are currently tracking](https://i.imgur.com/uZlX9PR.png)
+#### Details about job to add to applied board
+![imgur, details to add to applied jobs board](https://i.imgur.com/tyyB6yO.png)
+#### User's Job Board
+![imgur, Job Board](https://i.imgur.com/yJFi379.png)
+#### Details about a job that a user is tracking to add a note
+![imgur, user board for jobs that are currently tracking](https://i.imgur.com/qplCFxI.png)
 
 ## ERDs
 ![imgur, ERD](https://i.imgur.com/0C1mgth.png)
@@ -26,26 +26,26 @@ Using The Muse's API key.
 #### User
 | Method | Action | Description|
 |:------:|:------:|:----------:|
-| GET    | /users  | A form for creating a new user  |
-| POST   | /users/new  | A new user is created  |
-| PUT    | /users/:id  | Edit the user  |
-| DELETE | /users/:id  | Deleting a user  |
+| GET    | /users/new  | A form for creating a new user  |
+| POST   | /users  |   | Adding a new user to the database
+| GET   | /users/login  | Show a login form to the user   |
+| GET   | /users/profile  | Show user's profile   |
+| GET | /users/job-board  | Display all of user's saved jobs  |
+| DELETE | /users/job-board/:id  | Deleting a job from the job board  |
 
-#### Job Board
+#### Jobs
 | Method | Action | Description|
 |:------:|:------:|:----------:|
-| GET    | /jobs  | Shows all jobs  |
-| GET    | /jobs/:id  | Show one job  |
-| PUT    | /users/:id | Edit a job  |
-| DELETE | /users/:id  | Deleting a job  |
+| GET    | /jobs/results  | Shows all jobs  |
+| POST    | /jobs/ | Receiving a job and adding it to the database  |
+| GET    | /jobs/info/:id | Displaying a specific job  |
 
-#### Applied Job Board
+#### Job Notes
 | Method | Action | Description|
 |:------:|:------:|:----------:|
-| GET    | /applied  | Shows all applied jobs  |
-| POST   | /applied/new  |  A new applied job is added   |
-| PUT    | /applied/:id | Edit an applied job  |
-| DELETE | /applied/:id  | Deleting an applied job  |
+| GET    | /job-notes/:id  | Getting details about a specific job from job board  |
+| POST   | /job-notes/:id  |  Route to save note to database   |
+| POST    | /job-notes/:id/notes | Route to add note to page  |
 
 
 ## User Stories
