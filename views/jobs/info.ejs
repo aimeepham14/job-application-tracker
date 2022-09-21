@@ -1,22 +1,52 @@
-<!-- Details on a specific job -->
 
-<h1> <%=jobs.name %> position details:</h1>
+<div>
+    <div>
+    <section class="vh-100" >
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+              <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                  <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+      
+                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><%=jobs.name %></p>
+                        <div><h4>Position Name:</h4> <%= jobs.name %> </div>
+                        <div><h4>Location:</h4> <%= jobs.locations[0].name %></div>
+                        <div><h4>Company:</h4> <%= jobs.company.name %></div>
+                        <div><h4>Link to apply:</h4><a href="<%= jobs.refs.landing_page %>" target="_blank"><%= jobs.refs.landing_page %></a></div>
+                        <div><h4>Job Posted Date:</h4><%= jobs.publication_date %></div>
+                        <br>
+                        <br>
+                        <form method="POST" action="/users/jobs/" class="mx-1 mx-md-4">
+                            <input hidden value="<%= jobs.name%>" name="positionName"/>
+                            <input hidden value="<%= jobs.locations[0].name%>" name="location"/>
+                            <input hidden value="<%= jobs.company.name%>" name="company"/>
+                            <input hidden value="<%= jobs.refs.landing_page%>" name="jobLink"/>
+                            <input hidden value="<%= jobs.publication_date%>" name="dateAdded"/>
+                        
+                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                            <button type ="submit" class="btn btn-primary btn-lg">Add to your Job Board</button>
+                        </div>
+                        </form>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <style>
+        body {
+            background-image: url('https://i.imgur.com/1eYg9bX.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+    
+        }
+    </style>
+    </div>
 
-    <li>Postion Name: <%= jobs.name %> </li>
-    <li>Location: <%= jobs.locations[0].name %></li>
-    <li>Company: <%= jobs.company.name %></li>
-    <li>Link to apply: <%= jobs.refs.landing_page %></li>
-    <li>Job Posted Date: <%= jobs.publication_date %></li>
-
-
-<!-- Adding job to Saved Job Board -->
-<form method="POST" action="/users/jobs/">
-    <input hidden value="<%= jobs.name%>" name="positionName"/>
-    <input hidden value="<%= jobs.locations[0].name%>" name="location"/>
-    <input hidden value="<%= jobs.company.name%>" name="company"/>
-    <input hidden value="<%= jobs.refs.landing_page%>" name="jobLink"/>
-    <input hidden value="<%= jobs.publication_date%>" name="dateAdded"/>
-
-    <button type="submit"> Add to your Job Board</button>
-
-</form>
