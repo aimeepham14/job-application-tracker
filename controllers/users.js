@@ -153,22 +153,22 @@ router.delete('/job-board/:id', async (req,res) => {
 //     }
 // });
 
-//POST -- route to save note to db
-router.post('/job-board/:id/notes', async (req, res) => {
-    // console.log('testing this route')
-    console.log(req.body)
-    try{
-        const newNote = await db.job_note.create({
-            note: req.body.note,
-            date: req.body.date
-        })
-        // res.send(newNote)
-        res.redirect(`/job-board/${req.params.id}`)
-    } catch(err) {
-        console.log(err)
-        res.send(err)
-    }
-})
+// //POST -- route to save note to db
+// router.post('/job-board/:id/notes', async (req, res) => {
+//     // console.log('testing this route')
+//     console.log(req.body)
+//     try{
+//         const newNote = await db.job_note.create({
+//             note: req.body.note,
+//             date: req.body.date
+//         })
+//         // res.send(newNote)
+//         res.redirect(`/job-board/${req.params.id}`)
+//     } catch(err) {
+//         console.log(err)
+//         res.send(err)
+//     }
+// })
 
 
 
