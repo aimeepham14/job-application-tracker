@@ -162,3 +162,33 @@ SAVED JOB BOARD EJS
     </div>
 <% }) %>
 
+
+ADDING A NOTE PAGE
+
+<!-- Details on a specific job -->
+
+<h1> <%=details.name %> position details:</h1>
+
+    <li>Postion Name: <%= details.positionName %> </li>
+    <li>Location: <%= details.location %></li>
+    <li>Company: <%= details.company %></li>
+    <li>Link to apply: <%= details.jobLink %></li>
+
+    <form method="GET" action="/users/job-board/<%=details.id%>" >
+        <input hidden type="text" name="name" value="<%=details.name %>" >
+    </form>
+
+
+<form method="POST" action="/job-notes/<%=details.id%>/notes">
+    <label for="note">Add a note here:</label>
+    <input type="text" name="note">
+    <label for="date">Date</label>
+    <input type="date" name="date">
+    <input type="submit">
+</form>
+
+
+    <% note.forEach(note => { %>
+        <p><%= note.note %></p>
+        <p><%= note.date %></p>
+        <% }) %>

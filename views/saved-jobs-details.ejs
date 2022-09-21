@@ -1,27 +1,54 @@
-<!-- Details on a specific job -->
+<section style="background-color: #ad655f;">
+    <div class="container my-5 py-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10">
+          <div class="card text-dark">
+            <div class="card-body p-4">
+              <h2 class="mb-0"><%=details.positionName %></h2>  
+              <br>
+              <h5 class="mb-0 fw-light mb-4 pb-2">Link to apply: <a href="<%= details.jobLink %>" target="_blank"><%= details.jobLink %></a></h5>
+              <div class="d-flex flex-start">
+                <div>
+                  <div class="d-flex align-items-center mb-3">
+                  </div>
+                  <p class="mb-0">
+                    <div>
+                        <form method="GET" action="/users/job-board/<%=details.id%>" class="mx-1 mx-md-4">
+                            <input hidden type="text" name="name" value="<%=details.name %>">
+                        </form>
+                        <form method="POST" action="/job-notes/<%=details.id%>/notes" class="mx-1 mx-md-4">
+                            <label for="note"><h5>Add a note here:</h5></label>
+                            <input type="text" name="note">
+                            <br>
+                            <br>
+                            <label for="date"><h5>Date</h5></label>
+                            <input type="date" name="date">
+                            <input type="submit" class="btn btn-primary btn-lg">
+                        </form>
+                    </div>
+                    </p>
+                </div>
 
-<h1> <%=details.name %> position details:</h1>
+                <div>
+                    <div class="d-flex align-items-center mb-3">
+                    </div>
+                    <p class="mb-0">
+                      <div>
+                          <% note.forEach(note => { %>
 
-    <li>Postion Name: <%= details.positionName %> </li>
-    <li>Location: <%= details.location %></li>
-    <li>Company: <%= details.company %></li>
-    <li>Link to apply: <%= details.jobLink %></li>
-
-    <form method="GET" action="/users/job-board/<%=details.id%>" >
-        <input hidden type="text" name="name" value="<%=details.name %>" >
-    </form>
-
-
-<form method="POST" action="/job-notes/<%=details.id%>/notes">
-    <label for="note">Add a note here:</label>
-    <input type="text" name="note">
-    <label for="date">Date</label>
-    <input type="date" name="date">
-    <input type="submit">
-</form>
+                              <p class="p-3 mb-2 bg-info text-white"><%= note.note %></p>
+                              <p class="text-warning"><%= note.date %></p>
+                              <% }) %>
+                      </div>
+                      </p>
+                  </div>
+  
 
 
-    <% note.forEach(note => { %>
-        <p><%= note.note %></p>
-        <p><%= note.date %></p>
-        <% }) %>
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
