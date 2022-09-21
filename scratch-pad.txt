@@ -119,3 +119,18 @@ module.exports = (sequelize, DataTypes) => {
 };
 
 express_auth_boilerplate
+
+
+
+
+SEARCH RESULTS EJS
+<ul>
+<% jobs.forEach(job => { %>
+<span><%= job.name %></span>
+<p><%= job.locations[0].name %></p>
+<a href = '/jobs/info/<%= job.id %>'>More details</a>
+                
+                
+ <% }) %>
+</ul>
+
