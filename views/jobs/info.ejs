@@ -10,12 +10,16 @@
                   <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
       
-                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><%=jobs.name %></p>
-                        <div><h4>Position Name:</h4> <%= jobs.name %> </div>
-                        <div><h4>Location:</h4> <%= jobs.locations[0].name %></div>
-                        <div><h4>Company:</h4> <%= jobs.company.name %></div>
-                        <div><h4>Link to apply:</h4><a href="<%= jobs.refs.landing_page %>" target="_blank"><%= jobs.refs.landing_page %></a></div>
-                        <div><h4>Job Posted Date:</h4><%= jobs.publication_date %></div>
+                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 p-3 mb-2 bg-primary text-white"><%=jobs.name %></p>
+                        <div><h4><u>Position Name:</u></h4> <%= jobs.name %> </div>
+                        <br>
+                        <div><h4><u>Location:</u></h4><%= jobs.locations[0].name %></div>
+                        <br>
+                        <div><h4><u>Company:</u></h4> <%= jobs.company.name %></div>
+                        <br>
+                        <div><h4><u>Link to apply:</u></h4><a href="<%= jobs.refs.landing_page %>" target="_blank"><%= jobs.refs.landing_page %></a></div>
+                        <br>
+                        <div><h4><u>Job Posted Date:</u></h4><%= jobs.publication_date %></div>
                         <br>
                         <br>
                         <form method="POST" action="/users/jobs/" class="mx-1 mx-md-4">
@@ -41,7 +45,7 @@
     </div>
     <style>
         body {
-            background-image: url('https://i.imgur.com/1eYg9bX.jpg');
+            background-image: url('https://i.imgur.com/DVwDFvH.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
