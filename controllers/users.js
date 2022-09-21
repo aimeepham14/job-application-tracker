@@ -140,18 +140,18 @@ router.delete('/job-board/:id', async (req,res) => {
     .catch(console.log)
  })
 
-//GET -- getting details to one job from the job board
+// //GET -- getting details to one job from the job board
 
-router.get('/job-board/:id', async (req, res) => {
-    console.log('testing again2')
-   try {
-    const details = await db.save_job.findOne()
-    res.render('saved-jobs-details.ejs', {details: details})
-   } catch (err) {
-        console.log(err)
-        res.send('server error')
-    }
-});
+// router.get('/job-board/:id', async (req, res) => {
+//     console.log('testing again2')
+//    try {
+//     const details = await db.save_job.findOne()
+//     res.render('saved-jobs-details.ejs', {details: details})
+//    } catch (err) {
+//         console.log(err)
+//         res.send('server error')
+//     }
+// });
 
 //POST -- route to save note to db
 router.post('/job-board/:id/notes', async (req, res) => {
