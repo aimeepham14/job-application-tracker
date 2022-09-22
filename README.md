@@ -3,8 +3,30 @@
 ## Description
 Bored and overwhelmed applying for jobs? Don't be bored, get access to all of our boards to keep track of everything during the job searching process. This application will keep track of all of your jobs that you are interested in applying to and jobs that you have currently applied to in one spot. Update with your own notes during the entire interview process all in one place.
 
+## Deployed Link
+* [Deployment Link](https://project-2-job-app-aimeepham14.koyeb.app/)
+
 ## Installment Instructions
-Using The Muse's API key.
+* Fork and clone this repo to your local repo
+* Run `npm init -y` to initialize npm
+* Open the repo and go to the `package.json` file and see a list of npm packages under `dependencies` 
+* Run `npm install` or `npm i` in the terminal to download all required npm packages. 
+* Touch a `.gitignore` file and add `node_modules` and `.env` before committing to remote repo
+* Run `sequelize db:create` to creat the database in psql
+* Run `sequelize db:migrate` to migrate the models
+
+## Techstack
+* JavaScript
+* Node
+* Express
+* Axios
+* Sequelize
+* EJS
+* Express-EJS-Layouts
+* PostgreSQL
+* HTML
+* CSS
+* Bcrypt
 
 ## Wireframes
 #### Login Page

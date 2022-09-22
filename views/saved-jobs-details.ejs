@@ -17,7 +17,7 @@
                             <input hidden type="text" name="name" value="<%=details.name %>">
                         </form>
                         <form method="POST" action="/job-notes/<%=details.id%>/notes" class="mx-1 mx-md-4">
-                            <label for="note"><h5>Add a note here:</h5></label>
+                            <label for="note"><h5>Add a new note here:</h5></label>
                             <input type="text" name="note">
                             <br>
                             <br>
@@ -37,12 +37,16 @@
                           <% note.forEach(note => { %>
 
                               <p class="p-3 mb-2 bg-info text-white"><%= note.note %></p>
-                              <p class="text-warning"><%= note.date %></p>
+                              <p class="text-warning"><%= note.date %> </p>
+                              <a href="/job-notes/<%=details.id%>/<%= note.id %>/edit" role="button" class="btn btn-warning">Edit</a>
+
                               <% }) %>
+
                       </div>
+                      
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <a href = '/users/job-board'>Back to your Job Board</a>
-                        </div>
+                      </div>
 
                       </p>
                   </div>
@@ -54,3 +58,7 @@
       </div>
     </div>
   </section>
+
+  <a href="/job-notes/<%=details.id%>/<%= note.id %>/edit" role="button" class="btn btn-warning">Edit</a>
+
+ 

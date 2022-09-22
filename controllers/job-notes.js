@@ -62,7 +62,26 @@ router.post('/:id/notes', async (req, res) => {
         console.log(err)
         res.send('server error')
     }
+});
+
+router.put('/:id', (req, res) => {
+    db.job_note.update({
+        note: req.body.note,
+        date: req.body.date,
+
+    },
+    {
+        where: {id: req.params.id}
+    })
+    db.job_note.findOne({
+        where: { id: req.params.id}
+    })
+    .then(note => {
+        res.redirect(`/job-notes/${job_note.saveJobId}`)
+    })
 })
+
+
 
 
 
