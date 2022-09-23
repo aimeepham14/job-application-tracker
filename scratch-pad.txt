@@ -192,3 +192,6 @@ ADDING A NOTE PAGE
         <p><%= note.note %></p>
         <p><%= note.date %></p>
         <% }) %>
+
+
+    // db.model.update({what to change}, {where: {where clause}})
