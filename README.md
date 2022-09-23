@@ -68,6 +68,9 @@ Bored and overwhelmed applying for jobs? Don't be bored, get access to all of ou
 | GET    | /job-notes/:id  | Getting details about a specific job from job board  |
 | POST   | /job-notes/:id  |  Route to save note to database   |
 | POST    | /job-notes/:id/notes | Route to add note to page  |
+| GET    | /job-notes/edit/:id | Form to edit notes   |
+| PUT    | /job-notes/:id   | Post to edit the notes   |
+| DELETE | /job-notes/:id   | Deletes notes   |
 
 
 ## User Stories
