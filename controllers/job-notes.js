@@ -48,24 +48,6 @@ router.post('/:id', async (req, res) => {
     }
 });
 
-// GET -- to show edit form 
-router.get('/:id/edit', async (req, res) => {
-    try{
-        // console.log(req.params.id)
-        const note = await db.job_note.findAll({
-            where: {
-                saveJobId: req.params.saveJobId,
-                id: req.params.id
-            }
-        })
-        // console.log('comment', req.params.id)
-        res.render('edit.ejs')
-    } catch(err) {
-        console.log(err)
-        res.send(err)
-    }
-    
-});
 
 router.post('/:id/notes', async (req, res) => {     console.log('hello again again', req.params)
 
@@ -84,17 +66,43 @@ router.post('/:id/notes', async (req, res) => {     console.log('hello again aga
     }
 })
 
-//PUT -- edits comment in db
-router.put('/:id', (req, res) => {
-    db.job_note.update ({
-        note: req.body.note
-    },
-    {
-        where: {id: req.params.id}
-    })
-    .then(note => {
-        res.redirect(`/job-notes/${note.id}`)
-    })
+// GET -- to edit a note
+router.get('/edit/:id', async (req, res) => {
+    try{
+        // console.log(req.params.id)
+        const note = await db.job_note.findOne({
+            where: {
+               id: req.params.id
+            }
+        })
+        .then((note) => {
+            res.render('edit.ejs', {
+                note: note,
+                id: req.params.id
+            })
+        })
+    } catch(err) {
+        console.log(err)
+        res.send('server error')
+    }
+});
+
+
+//PUT -- posting the edits
+router.put('/:id', async (req, res) => {
+    try{
+        const changeNote = await db.job_note.update({
+            note: req.body.note,
+            date: req.body.date,
+            saveJobId: req.body.saveJobId
+        }, { where: {
+            id: req.params.id
+        }})
+        res.redirect(`/job-notes/${req.params.id}`)
+    } catch(err) {
+        console.log(err)
+        res.send('server error')
+    }
 })
 
 
